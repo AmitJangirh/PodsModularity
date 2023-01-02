@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AppLogin
 
 class ViewController: UIViewController {
     
@@ -48,14 +49,36 @@ class ViewController: UIViewController {
             .text
             .bind(to: label.rx.text)
             .disposed(by: disposeBag)
+        
+        viewModel
+            .loginResult(username: "", pass: "")
+            .subscribe(onNext: { result in
+                print(result)
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
 class ViewModel {
+    
+    private let login: Login
+    
+    init(login: Login = Login()) {
+        self.login = login
+    }
+    
     var text: Observable<String> {
         Observable.create { observer in
             observer.onNext("This is sample text")
             return Disposables.create()
         }
+    }
+    
+    func loginResult(username: String, pass: String) -> Observable<LoginResult> {
+        self.login.login(param: .credential(username: username, pass: pass))
+    }
+    
+    func loginResult(username: String, authCode: String) -> Observable<LoginResult> {
+        self.login.login(param: .sso(username: username, authcode: authCode))
     }
 }

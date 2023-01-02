@@ -5,14 +5,10 @@ target 'MainApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  def shared_pods
-    pod 'RxSwift'
-    pod 'RxCocoa'
-  end
-
   # Pods for MainApp
-  
-  shared_pods
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'AppLogin', :path => 'Modules/AppLogin'  
 
   target 'MainAppTests' do
     inherit! :search_paths

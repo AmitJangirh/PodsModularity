@@ -1,4 +1,7 @@
 PODS:
+  - AppLogin (1.0):
+    - RxCocoa
+    - RxSwift
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -7,6 +10,7 @@ PODS:
   - RxSwift (6.5.0)
 
 DEPENDENCIES:
+  - AppLogin (from `Modules/AppLogin`)
   - RxCocoa
   - RxSwift
 
@@ -16,11 +20,16 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
 
+EXTERNAL SOURCES:
+  AppLogin:
+    :path: Modules/AppLogin
+
 SPEC CHECKSUMS:
+  AppLogin: 296531718cd1e9efa448ab353b2062bf39ac93a2
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: ca322ef50dcc246348575440ed4efda5f5e0207e
+PODFILE CHECKSUM: cae3caa40dbe0b87575479b4c54cc22b07130633
 
 COCOAPODS: 1.11.3
